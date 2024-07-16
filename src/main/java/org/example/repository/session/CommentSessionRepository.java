@@ -31,7 +31,7 @@ public class CommentSessionRepository {
         try {
             String statement = "org.example.repository.session.CommentSessionRepository.selectComment";
 
-            return sqlSession.selectOne(statement);
+            return sqlSession.selectOne(statement, id);
         } finally {
            sqlSession.close();
         }
@@ -41,7 +41,7 @@ public class CommentSessionRepository {
         SqlSession sqlSession = getSqlSessionFactory().openSession();
 
         try {
-            String statement = "org.example.repository.mapper.CommentMapper.insertComment";
+            String statement = "org.example.repository.session.CommentSessionRepository.insertComment";
             int result = sqlSession.insert(statement, comment);
 
             if (result > 0) sqlSession.commit();
@@ -55,7 +55,7 @@ public class CommentSessionRepository {
         SqlSession sqlSession = getSqlSessionFactory().openSession();
 
         try {
-            String statement = "org.example.repository.mapper.CommentMapper.updateComment";
+            String statement = "org.example.repository.session.CommentSessionRepository.updateComment";
             int result = sqlSession.update(statement, comment);
 
             if (result > 0) sqlSession.commit();
@@ -69,7 +69,7 @@ public class CommentSessionRepository {
         SqlSession sqlSession = getSqlSessionFactory().openSession();
 
         try {
-            String statement = "org.example.repository.mapper.CommentMapper.deleteComment";
+            String statement = "org.example.repository.session.CommentSessionRepository.deleteComment";
             int result = sqlSession.delete(statement, id);
 
             if (result > 0) sqlSession.commit();

@@ -17,4 +17,3 @@ public class Reply implements Serializable {
     private Date regDate;
 
 }
-

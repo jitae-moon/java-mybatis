@@ -13,18 +13,18 @@
     </select>
 
     <insert id="insertComment" parameterType="Comment">
-        INSERT INTO COMMENT(id, user_id, content, reg_date)
-            VALUES (#{id}, #{userId}, #{content}, #{regDate})
+        INSERT INTO COMMENT(user_id, content, reg_date)
+            VALUES (#{userId}, #{content}, #{regDate})
     </insert>
 
     <update id="updateComment" parameterType="Comment">
-        UPDATE comment
+        UPDATE COMMENT
             SET content = #{content}
         WHERE id = #{id}
     </update>
 
     <delete id="deleteComment" parameterType="long">
-        DELETE FROM comment
+        DELETE FROM COMMENT
         WHERE id = #{id}
     </delete>
 </mapper>
